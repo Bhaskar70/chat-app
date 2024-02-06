@@ -1,0 +1,29 @@
+<div class="container">
+    <h1 mat-dialog-title>Create Group</h1>
+<div mat-dialog-content>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="form-group" [formGroup]="addFriendForm">
+        <input
+          type="text"
+          placeholder="Friend Name"
+          class="form-control m-2"
+          formControlName="friendName"
+        />
+        <input
+          type="text"
+          placeholder="User Name"
+          class="form-control m-2"
+          formControlName="username"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+<div mat-dialog-actions>
+  <button class="btn btn-sm btn-danger" (click)="onNoClick()">Cancel</button>
+  <button mat-button class="btn btn-primary" (click)="AddFriend()">
+    Add Friend
+  </button>
+</div>
+</div>
