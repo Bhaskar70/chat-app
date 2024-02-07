@@ -20,15 +20,19 @@ export class ChatPageComponent {
   constructor(private chatserive: ChatService,   public dialog: MatDialog,){}
   ngOnInit(){
     console.log(this.userdata)
-    this.chatserive.getUser()?.subscribe(res=>{
-      console.log(res , 'user details')
+    this.chatserive.getUser().subscribe(res=>{
+      this.userdata = res
     })
   }
   addFriend(){
     const dialogRef = this.dialog.open(AddfriendComponent);
-    // const payload = {
-    // userId : this.userdata._id , friendName : 'sandeep', friendUserName :'7123456789'
-    // }
-    // this.chatserive.addFriend(payload).subscribe(res=>console.log(res , 'add friend'))
+    dialogRef.afterClosed().subscribe((result:any)=>{
+      if(result){
+        const userId = this.userdata._id
+        const payload = {userId , ...result}
+        this.chatserive.addFriend(payload).subscribe(res=>console.log(res , 'add friend'))
+
+      }
+    })
   }
 }

@@ -22,7 +22,7 @@ export class AddfriendComponent {
   ) {
     this.addFriendForm = this.fb.group({
       friendName : ['', Validators.required],
-      username: ['', Validators.required],
+      friendId: ['', Validators.required],
     });
   }
 
