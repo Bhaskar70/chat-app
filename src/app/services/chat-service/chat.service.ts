@@ -22,4 +22,7 @@ export class ChatService {
    getUser(){
     return  this.http.get(`${this.apiUrl}/user`,{ withCredentials: true })
    }
+   getFriends(id:any){
+    return  this.http.get(`${this.apiUrl}/getfriends/${id}`,{ withCredentials: true })
+   }
 }
